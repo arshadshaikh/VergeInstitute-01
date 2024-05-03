@@ -1,0 +1,168 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+
+.navbar{
+    width:100%;
+    height:auto;
+    padding: 4px;
+    display:inline-block;
+    background-color: #99BC85;
+}
+
+.navbar ul li{
+    float:right;
+    text-decoration:none;
+    list-style-type:none;
+    margin:6px;
+    font-family: Helvetica, sans-serif;
+    padding:2px;
+    border-radius:5px;
+}
+
+
+.navbar ul li a:hover{
+    color:#E1F0DA;
+    border:none;
+    transition:0.2s;
+}
+
+
+.navbar ul li:hover{
+    color:#E1F0DA;
+    border:none;
+    transition:0.2s;
+}
+
+.navbar ul li a{
+  text-decoration:none;
+  color:black;
+}
+
+
+
+@media(max-width:800px){
+    .navbar ul li{
+      display:none;
+  }
+}
+
+.navbar ul p{
+   font-size:30px;
+}
+
+.navbar ul button{
+    margin-left:10px;
+}
+
+@media(max-width:800px){
+    .navbar ul button{
+      margin-top:2px;
+      margin-bottom:2px;
+  }
+}
+
+
+
+.navbar ul li .aryan{
+    font-size:2rem;
+}
+
+.navbar ul button{
+    font-family: Helvetica, sans-serif;
+     float:right;
+    margin-top:2px;
+}
+
+.navbar ul .login_button{
+    font-family: Helvetica, sans-serif;
+    background-color: #99BC85;
+    color:#E1F0DA;
+    border:1px solid #BFD8AF;
+    padding:6px;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+.navbar ul .signin_button{
+    font-family: Helvetica, sans-serif;
+    background-color: ;
+    color:#99BC85;
+    border:1px solid #BFD8AF;
+    padding:5px;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+
+.navbar ul .menu{
+    font-family: Helvetica, sans-serif;
+    padding:4px 8px;
+    display:none;
+    background-color:rgba(0,0,0,0.0);
+    border:none;
+    font-size:18px;
+    float:left;
+}
+
+@media (max-width:800px){
+    .navbar ul .menu{
+        display:inline-block;
+    }
+}
+
+/* navbar 2 */
+.navbar2_container{
+    width:0px;
+    height:100%;
+    background-color:rgba(184, 178, 178, 0.9);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align: center;
+    position:absolute;
+    top:0px;
+    overflow-x:hidden;
+    transition:0.5s;
+}
+
+.navbar2_container ul li{
+    margin:15px;
+    list-style-type: none;
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.navbar2_container .close_menu_btn{
+    float:right;
+    padding:10px;
+    border:none;
+    font-size:2rem;
+    position:absolute;
+    right:20px;
+    top:20px;
+    background-color: rgba(0,0,0,0.0);
+}
+
+.navbar2_container ul li a{
+    text-decoration:dotted;
+    color:black;
+}
+
+
+.navbar2_container ul li:hover{
+    color:#E1F0DA;
+    border:none;
+    transition:0.2s;
+}
+
+.navbar2_container ul li a:hover{
+    color:#E1F0DA;
+    border:none;
+    transition:0.2s;
+}
+
+
+

@@ -12,33 +12,115 @@ menuClose.addEventListener('click',() => {// navbar close function
    menuOpen.style.display = "inline-block";
 })
 
-// slide show
+// image Slider script
 
-let slideIndex = 1;
-showSlides(slideIndex);
+let leftbtn = document.querySelector(".leftbtn");
+let rightbtn = document.querySelector(".rightbtn");
+let slider = document.querySelector(".slider");
 
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
+let images = document.querySelectorAll(".image");
+
+let indexNum = 1;
+let length = images.length;
+
+//  creating a circle  buttons for sliding 
+
+let bottom = document.querySelector(".bottom");
+
+for(let i=0; i<length; i++){
+  let div = document.createElement("div");
+  div.className = "button";
+  bottom.appendChild(div);
 }
 
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
+let buttons = document.querySelectorAll('.button');
+
+buttons[0].style.backgroundColor = "black";
+
+let resetbg = () => {
+  buttons.forEach((button) =>{
+    button.style.backgroundColor = "transparent";
+    button.addEventListener('mouseover', stopSlideShow);
+    button.addEventListener('mouseout', startSlideShow);
+ });
+};
+
+buttons.forEach((button,i) => {
+   button.addEventListener('click', () => {
+    resetbg();
+    slider.style.transform = `translateX(-${i*800}px)`;
+    indexNum = i+1;
+    button.style.backgroundColor = "black";
+ });
+});
+
+
+let changecolor = () =>{
+  resetbg();
+  buttons[indexNum-1].style.background = "black";
 }
 
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+
+// script of side button for sliding
+
+let nextslide = () => {
+  slider.style.transform = `translateX(-${indexNum*800}px)`;
+  indexNum++;
 }
+
+let prevslide = () => {
+  slider.style.transform = `translateX(-${(indexNum-2)*800}px)`;
+  indexNum--;
+}
+
+let firstslide = () => {
+  slider.style.transform = `translateX(0px)`;
+  indexNum = 1;
+}
+
+let lastslide = () => {
+  slider.style.transform = `translateX(-${(length-1)*800}px)`;
+  indexNum = length;
+}
+
+
+rightbtn.addEventListener('click', () =>{
+  indexNum < length ?  nextslide() : firstslide(); 
+  changecolor(); 
+})
+
+leftbtn.addEventListener('click', () =>{
+  indexNum > 1?  prevslide() : lastslide();  
+  changecolor();	
+})
+
+// automatic slide show 
+
+let slideInterval;
+
+let startSlideShow = () => {
+   slideInterval = setInterval(() =>{
+   indexNum < length ?  nextslide() : firstslide();
+   changecolor();
+  },3000);
+};
+
+startSlideShow();
+
+// stoping sliding when we hover on it;
+
+let stopSlideShow = () => {
+  clearInterval(slideInterval);
+};
+
+slider.addEventListener('mouseover', stopSlideShow);
+slider.addEventListener('mouseout', startSlideShow);
+
+rightbtn.addEventListener('mouseover', stopSlideShow);
+rightbtn.addEventListener('mouseout', startSlideShow);
+
+leftbtn.addEventListener('mouseover', stopSlideShow);
+leftbtn.addEventListener('mouseout', startSlideShow);
+	
+
+
